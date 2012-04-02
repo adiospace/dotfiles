@@ -1,5 +1,5 @@
 set nocompatible
-filetype off                   
+filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -29,7 +29,7 @@ Bundle 'lunaru/vim-less'
 Bundle 'tomasr/molokai'
 Bundle 'altercation/vim-colors-solarized'
 
-filetype plugin indent on     
+filetype plugin indent on
 
 set termencoding=utf-8
 set encoding=utf-8
@@ -41,14 +41,14 @@ set hidden
 set t_Co=256
 
 " change the terminal's title
-set title                
+set title
 
 " support all three, in this order
-set fileformats=unix,dos,mac 
+set fileformats=unix,dos,mac
 " none of these are word dividers
-set iskeyword+=_,$,@,%,# 
+set iskeyword+=_,$,@,%,#
 " ignore these list file extensions
-set linespace=2 
+set linespace=2
 " turn on line numbers
 " set number
 " we are good up to 99999 lines
@@ -56,65 +56,66 @@ set linespace=2
 " shortens messages to avoid 'press a key' prompt
 set shortmess=aOstT
 " make folding work
-set fdm=marker 
+set fdm=marker
 " keep 10 lines (top/bottom) for scope
-set scrolloff=10 
+set scrolloff=10
 " turn on wild mode huge list
-set wildmode=list:longest 
+set wildmode=list:longest
 " turn on command line completion wild style
-set wildmenu 
+set wildmenu
 " automatically insert comment leader on return, and let gq format comments
-set formatoptions=rq 
+set formatoptions=rq
 " don't use a pop up menu for completions
-set completeopt= 
+set completeopt=
 " display unprintable chars
-" set list
-" set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 " don't wrap lines
-set nowrap        
-" a tab is four spaces
-set tabstop=2     
+set nowrap
+" a tab is 2 spaces
+set tabstop=2
+set softtabstop=2
+" expand tabs by default
+set expandtab
 " always set autoindenting on
-set autoindent    
+set autoindent
 " copy the previous indentation on autoindenting
-set copyindent    
-
+set copyindent
 " number of spaces to use for autoindenting
-set shiftwidth=2  
+set shiftwidth=2
 " use multiple of shiftwidth when indenting with '<' and '>'
 " when at 3 spaces, and I hit > ... go to 4, not 5
-set shiftround    
+set shiftround
 " set show matching parenthesis
-set showmatch     
+set showmatch
 " ignore case when searching
-set ignorecase    
+set ignorecase
 " case inferred by default
-set infercase 
+set infercase
 " ignore case if search pattern is all lowercase, case-sensitive otherwise
-set smartcase     
+set smartcase
 " insert tabs on the start of a line according to shiftwidth, not tabstop
-set smarttab      
+set smarttab
 
 " highlight search terms
-set hlsearch      
+set hlsearch
 " show search matches as you type
-set incsearch     
+set incsearch
 
 " remember more commands and search history
-set history=1000         
+set history=1000
 " use many muchos levels of undo
-set undolevels=1000      
+set undolevels=1000
 
 " ignore files we don't need to edit
 set wildignore+=*.swp,*.bak,*.pyc,*.class
 set wildignore+=*/.git/*,*/.hq/*,*/.svn/*
 set wildignore+=*.dll,*.o,*.obj,*.exe
-set wildignore+=*.jpg,*.gif,*.png 
+set wildignore+=*.jpg,*.gif,*.png
 
 " no noise please
-set noerrorbells 
+set noerrorbells
 set novisualbell
 
 " don't let vim track backups
@@ -131,16 +132,16 @@ syntax enable
 let mapleader=","
 
 " always show the status bar
-set laststatus=2  
+set laststatus=2
 
 " set colorscheme to molokai
 " use dark backgrounds
 let g:solarized_termcolors=256
 set background=dark
-colorscheme molokai
+colorscheme solarized
 
 " make sure all mardown files have the correct filetype set and setup wrapping
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown 
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
 " treat JSON files like JavaScript
 au BufNewFile,BufRead *.json set ft=javascript
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
@@ -165,15 +166,20 @@ let NERDTreeShowFiles=1  " Show hidden files, too
 let NERDTreeShowHidden=1 " Quit on opening files from the tree
 let NERDTreeQuitOnOpen=1 " Highlight the selected entry in the tree
 let NERDTreeHighlightCursorline=1 " Don't display these kinds of files
-let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', 
-			\ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+      \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
 
 let g:ctrlp_custom_ignore = {
-			\ 'dir': 'target$\|log$\|logs$\|\.buildcache$'
-			\}
+      \ 'dir': 'target$\|log$\|logs$\|\.buildcache$'
+      \}
 
 
 " Run Ack fast
 nnoremap <leader>a :Ack<Space>
+" remove trailing whitespace
+nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+
 " no search highlight
 nmap <silent> <C-n> :noh<CR>
+" switch between printable chars
+nmap <silent> <C-l> :set invlist<CR>
