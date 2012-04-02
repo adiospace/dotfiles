@@ -134,11 +134,11 @@ let mapleader=","
 " always show the status bar
 set laststatus=2
 
-" set colorscheme to molokai
-" use dark backgrounds
-let g:solarized_termcolors=256
+
 set background=dark
-colorscheme solarized
+colorscheme molokai
+" in case you use solarized colorscheme
+" let g:solarized_termcolors=256
 
 " make sure all mardown files have the correct filetype set and setup wrapping
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
@@ -147,11 +147,21 @@ au BufNewFile,BufRead *.json set ft=javascript
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
+
+" NERDTree config
+let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks") " Store the bookmarks file
+let NERDTreeShowFiles=1  " Show hidden files, too
+let NERDTreeShowHidden=1 " Quit on opening files from the tree
+let NERDTreeQuitOnOpen=1 " Highlight the selected entry in the tree
+let NERDTreeHighlightCursorline=1 " Don't display these kinds of files
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+let g:ctrlp_custom_ignore = {'dir': 'target$\|log$\|logs$\|\.buildcache$'}
+
 " Mappings
 
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 " (it will prompt for sudo password when writing)
-cmap w!! %!sudo tee > /dev/null %"
+cmap w!! w !sudo tee % > /dev/null
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -159,27 +169,13 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" NERDTree config
-nmap <leader>n :NERDTreeToggle<CR>
-let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks") " Store the bookmarks file
-let NERDTreeShowFiles=1  " Show hidden files, too
-let NERDTreeShowHidden=1 " Quit on opening files from the tree
-let NERDTreeQuitOnOpen=1 " Highlight the selected entry in the tree
-let NERDTreeHighlightCursorline=1 " Don't display these kinds of files
-let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-      \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
-
-let g:ctrlp_custom_ignore = {
-      \ 'dir': 'target$\|log$\|logs$\|\.buildcache$'
-      \}
-
-
-" Run Ack fast
+" run Ack fast
 nnoremap <leader>a :Ack<Space>
 " remove trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
-
+" toggle NerdTree
+nmap <leader>n :NERDTreeToggle<CR>
 " no search highlight
 nmap <silent> <C-n> :noh<CR>
-" switch between printable chars
+" toggle printable chars
 nmap <silent> <C-l> :set invlist<CR>
