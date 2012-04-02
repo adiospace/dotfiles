@@ -51,8 +51,6 @@ set iskeyword+=_,$,@,%,#
 set linespace=2
 " turn on line numbers
 set number
-" we are good up to 99999 lines
-set numberwidth=5
 " shortens messages to avoid 'press a key' prompt
 set shortmess=aOstT
 " make folding work
@@ -115,8 +113,7 @@ set wildignore+=*.dll,*.o,*.obj,*.exe
 set wildignore+=*.jpg,*.gif,*.png
 
 " no noise please
-set noerrorbells
-set novisualbell
+set noerrorbells visualbell t_vb=
 
 " don't let vim track backups
 set nobackup
@@ -179,3 +176,6 @@ nmap <leader>n :NERDTreeToggle<CR>
 nmap <silent> <C-n> :noh<CR>
 " toggle printable chars
 nmap <silent> <C-l> :set invlist<CR>
+" comment
+map <leader>/ <plug>NERDCommenterToggle<CR>
+imap <leader>/ <Esc><plug>NERDCommenterToggle<CR>i
