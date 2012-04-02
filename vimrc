@@ -27,6 +27,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'lunaru/vim-less'
 " colorschemes
 Bundle 'tomasr/molokai'
+Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on     
 
@@ -126,9 +127,6 @@ set pastetoggle=<F2>
 " enable syntax
 syntax enable
 
-" use dark backgrounds
-set background=dark
-
 " set map leader
 let mapleader=","
 
@@ -136,6 +134,9 @@ let mapleader=","
 set laststatus=2  
 
 " set colorscheme to molokai
+" use dark backgrounds
+let g:solarized_termcolors=256
+set background=dark
 colorscheme molokai
 
 " make sure all mardown files have the correct filetype set and setup wrapping
@@ -166,6 +167,11 @@ let NERDTreeQuitOnOpen=1 " Highlight the selected entry in the tree
 let NERDTreeHighlightCursorline=1 " Don't display these kinds of files
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', 
 			\ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+
+let g:ctrlp_custom_ignore = {
+			\ 'dir': 'target$\|log$\|logs$\|\.buildcache$'
+			\}
+
 
 " Run Ack fast
 nnoremap <leader>a :Ack<Space>
