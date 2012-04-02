@@ -50,9 +50,9 @@ set iskeyword+=_,$,@,%,#
 " ignore these list file extensions
 set linespace=2
 " turn on line numbers
-" set number
+set number
 " we are good up to 99999 lines
-" set numberwidth=5
+set numberwidth=5
 " shortens messages to avoid 'press a key' prompt
 set shortmess=aOstT
 " make folding work
