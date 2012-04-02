@@ -16,11 +16,15 @@ Bundle 'kana/vim-smartinput'
 Bundle 'ervandew/supertab'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'matchit.zip'
+" file types
+Bundle 'pangloss/vim-javascript'
 " colorschemes
 Bundle 'tomasr/molokai'
 
 filetype plugin indent on     
 
+set termencoding=utf-8
+set encoding=utf-8
 set ruler
 set hidden
 set t_Co=256
@@ -64,7 +68,7 @@ set noerrorbells
 " no fuss with swp files or backups 
 set nobackup
 set noswapfile
-" enable os paste
+" toggle paste
 set pastetoggle=<F2>
 " enable syntax
 syntax enable
@@ -85,3 +89,27 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
 au BufNewFile,BufRead *.json set ft=javascript
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" NERDTree config
+nmap <leader>n :NERDTreeToggle<CR>
+" Store the bookmarks file
+let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks")
+" Show hidden files, too
+let NERDTreeShowFiles=1
+let NERDTreeShowHidden=1
+" Quit on opening files from the tree
+let NERDTreeQuitOnOpen=1
+" Highlight the selected entry in the tree
+let NERDTreeHighlightCursorline=1
+" Don't display these kinds of files
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+
+" Run Ack fast
+nnoremap <leader>a :Ack<Space>
