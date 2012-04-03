@@ -10,4 +10,5 @@ alias tmux='TERM=screen-256color-bce tmux'
 export PS1='\W$(vcprompt -f " (%u%m%b)"): '
 
 # for dircolors - use http://github.com/seebi/dircolors-solarized
+# only for GNOME
 eval `dircolors ~/.dir_colors`
