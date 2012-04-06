@@ -172,7 +172,7 @@ nmap <leader>n :NERDTreeToggle<CR>
 " no search highlight
 nmap <silent> <C-n> :noh<CR>
 " toggle printable chars
-nmap <silent> <C-l> :set invlist<CR>
+nmap <silent> <C-i> :set invlist<CR>
 " comment
 map <leader>/ <plug>NERDCommenterToggle<CR>
 imap <leader>/ <Esc><plug>NERDCommenterToggle<CR>i
