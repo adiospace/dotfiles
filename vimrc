@@ -131,19 +131,16 @@ let mapleader=","
 " always show the status bar
 set laststatus=2
 
-
 set background=dark
 colorscheme molokai
 " in case you use solarized colorscheme
 " let g:solarized_termcolors=256
 
-" make sure all mardown files have the correct filetype set and setup wrapping
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
 " treat JSON files like JavaScript
-au BufNewFile,BufRead *.json set ft=javascript
+au BufNewFile,BufRead *.json setf javascript
+
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-
 
 " NERDTree config
 let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks") " Store the bookmarks file
