@@ -26,23 +26,19 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'lunaru/vim-less'
 " colorschemes
-Bundle 'tomasr/molokai'
+Bundle 'adrianolaru/vim-molokai'
 Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on
 
 set termencoding=utf-8
 set encoding=utf-8
-
 set ruler
 set hidden
-
 " we use 256 enabled terminals
 set t_Co=256
-
 " change the terminal's title
 set title
-
 " support all three, in this order
 set fileformats=unix,dos,mac
 " none of these are word dividers
@@ -66,6 +62,7 @@ set formatoptions=rq
 " don't use a pop up menu for completions
 set completeopt=
 " display unprintable chars
+set list
 set listchars=tab:▸\ ,eol:¬
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
