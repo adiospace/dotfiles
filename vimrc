@@ -160,12 +160,19 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" map ctrlP to leader t
+let g:ctrlp_map =''
+nmap <leader>t :CtrlP<CR>
+nmap <leader>b :CtrlPBuffer<CR>
+
+" toggle NerdTree
+nmap <leader>n :NERDTreeToggle<CR>
+
 " run Ack fast
 nnoremap <leader>a :Ack<Space>
 " remove trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
-" toggle NerdTree
-nmap <leader>n :NERDTreeToggle<CR>
+
 " no search highlight
 nmap <silent> <C-n> :noh<CR>
 " toggle printable chars
@@ -173,3 +180,4 @@ nmap <silent> <C-i> :set invlist<CR>
 " comment
 map <leader>/ <plug>NERDCommenterToggle<CR>
 imap <leader>/ <Esc><plug>NERDCommenterToggle<CR>i
+
