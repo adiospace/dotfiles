@@ -161,9 +161,9 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " map ctrlP to leader t
-let g:ctrlp_map =''
-nmap <leader>t :CtrlP<CR>
-nmap <leader>b :CtrlPBuffer<CR>
+" let g:ctrlp_map =''
+" nmap <leader>t :CtrlP<CR>
+" nmap <leader>b :CtrlPBuffer<CR>
 
 " toggle NerdTree
 nmap <leader>n :NERDTreeToggle<CR>
