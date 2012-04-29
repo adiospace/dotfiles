@@ -146,7 +146,7 @@ let NERDTreeShowHidden=1 " Quit on opening files from the tree
 let NERDTreeQuitOnOpen=1 " Highlight the selected entry in the tree
 let NERDTreeHighlightCursorline=1 " Don't display these kinds of files
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
-let g:ctrlp_custom_ignore = {'dir': 'target$\|log$\|logs$\|\.buildcache$'}
+let g:ctrlp_custom_ignore = {'dir': 'target$\|log$\|logs$\|\.buildcache$|node_modules$'}
 
 " Mappings
 
