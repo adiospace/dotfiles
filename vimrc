@@ -61,8 +61,6 @@ set wildmenu
 set formatoptions=rq
 " don't use a pop up menu for completions
 set completeopt=
-" display unprintable chars
-set list
 set listchars=tab:▸\ ,eol:¬
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -173,10 +171,6 @@ nnoremap <leader>a :Ack<Space>
 " remove trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
-" no search highlight
-nmap <silent> <C-n> :noh<CR>
-" toggle printable chars
-nmap <silent> <C-i> :set invlist<CR>
 " comment
 map <leader>/ <plug>NERDCommenterToggle<CR>
 imap <leader>/ <Esc><plug>NERDCommenterToggle<CR>i
