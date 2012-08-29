@@ -26,7 +26,7 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'lunaru/vim-less'
 " colorschemes
-Bundle 'adrianolaru/vim-molokai'
+Bundle 'tomasr/molokai'
 Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on
@@ -46,7 +46,7 @@ set iskeyword+=_,$,@,%,#
 " ignore these list file extensions
 set linespace=2
 " turn on line numbers
-set number
+" set number
 " shortens messages to avoid 'press a key' prompt
 set shortmess=aOstT
 " make folding work
