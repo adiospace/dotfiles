@@ -26,27 +26,29 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'lunaru/vim-less'
 " colorschemes
-Bundle 'tomasr/molokai'
+Bundle 'adrianolaru/vim-adio'
 Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on
 
 set termencoding=utf-8
 set encoding=utf-8
+
+
 set ruler
 set hidden
 " we use 256 enabled terminals
 set t_Co=256
 " change the terminal's title
 set title
+
 " support all three, in this order
 set fileformats=unix,dos,mac
 " none of these are word dividers
 set iskeyword+=_,$,@,%,#
 " ignore these list file extensions
-set linespace=2
 " turn on line numbers
-" set number
+set number
 " shortens messages to avoid 'press a key' prompt
 set shortmess=aOstT
 " make folding work
@@ -101,6 +103,8 @@ set history=1000
 " use many muchos levels of undo
 set undolevels=1000
 
+set cursorline
+
 " ignore files we don't need to edit
 set wildignore+=*.swp,*.bak,*.pyc,*.class
 set wildignore+=*/.git/*,*/.hq/*,*/.svn/*
@@ -126,10 +130,7 @@ let mapleader=","
 " always show the status bar
 set laststatus=2
 
-set background=dark
-colorscheme molokai
-" in case you use solarized colorscheme
-" let g:solarized_termcolors=256
+colorscheme adio
 
 " treat JSON files like JavaScript
 au BufNewFile,BufRead *.json setf javascript
@@ -158,6 +159,15 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+
 " map ctrlP to leader t
 " let g:ctrlp_map =''
 " nmap <leader>t :CtrlP<CR>
@@ -175,3 +185,4 @@ nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 map <leader>/ <plug>NERDCommenterToggle<CR>
 imap <leader>/ <Esc><plug>NERDCommenterToggle<CR>i
 
+set fillchars=vert:\│
