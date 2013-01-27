@@ -28,7 +28,7 @@ __prompt () {
   #   - svn - always compare HEAD to your SVN upstream
   export GIT_PS1_SHOWUPSTREAM="verbose" 
   
-  export PS1='┌─[\[\e[38;5;36m\]\w\[\e[0m\]\[\e[38;5;238m\]$(__git_ps1 " (%s)")\[\e[0m\]]\n└─╼ '
+  export PS1='┌─[\[\e[38;5;29m\]\w\[\e[0m\]\[\e[38;5;238m\]$(__git_ps1 " (%s)")\[\e[0m\]]\n└─╼ '
 }
 
 __prompt

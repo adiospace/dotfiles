@@ -83,7 +83,7 @@ set shiftwidth=2
 " when at 3 spaces, and I hit > ... go to 4, not 5
 set shiftround
 " set show matching parenthesis
-set showmatch
+" set showmatch
 " ignore case when searching
 set ignorecase
 " case inferred by default
