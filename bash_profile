@@ -1,6 +1,10 @@
+# Define PATH
 export PATH="$HOME/.rbenv/bin:/Users/me/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
-# source git-prompt script
+#
+# Custom PS1 with git support
+#
+# Init git-prompt script
 . /usr/local/Cellar/git/1.8.1.1/etc/bash_completion.d/git-prompt.sh
 # Show unstaged (*) and staged (+) changes next to the branch name
 export GIT_PS1_SHOWDIRTYSTATE=true
@@ -15,8 +19,13 @@ export GIT_PS1_SHOWUPSTREAM="verbose"
 # Defines my custom Prompt
 export PS1='┌─[\[\e[38;5;29m\]\w\[\e[0m\]\[\e[38;5;238m\]$(__git_ps1 " (%s)")\[\e[0m\]]\n└─╼ '
 
-# setup ruby environment
+# Init ruby environment
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Init bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
 # Aliases
 alias ll="ls -la"
