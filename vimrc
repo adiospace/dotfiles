@@ -12,7 +12,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kana/vim-smartinput'
 Bundle 'ervandew/supertab'
 Bundle 'mileszs/ack.vim.git'
@@ -27,7 +27,6 @@ Bundle 'tpope/vim-markdown'
 Bundle 'lunaru/vim-less'
 " colorschemes
 Bundle 'adrianolaru/vim-adio'
-Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on
 
@@ -159,14 +158,15 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+nnoremap tt  :tabedit<Space>
+nnoremap td  :tabclose<CR>
+nnoremap tc  :tabclose<CR>
 nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
+nnoremap tn  :tabnext<Space>
 nnoremap tk  :tabprev<CR>
 nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
-nnoremap tn  :tabnext<Space>
 nnoremap tm  :tabm<Space>
-nnoremap td  :tabclose<CR>
 
 " map ctrlP to leader t
 " let g:ctrlp_map =''
