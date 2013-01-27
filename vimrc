@@ -4,7 +4,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
- Bundle 'gmarik/vundle'
+Bundle 'gmarik/vundle'
 
 " bundles
 Bundle 'kien/ctrlp.vim'
@@ -12,7 +12,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
-"Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kana/vim-smartinput'
 Bundle 'ervandew/supertab'
 Bundle 'mileszs/ack.vim.git'
@@ -27,6 +26,9 @@ Bundle 'tpope/vim-markdown'
 Bundle 'lunaru/vim-less'
 " colorschemes
 Bundle 'adrianolaru/vim-adio'
+" nice to try plugins
+"Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-easymotion'
 
 filetype plugin indent on
 
