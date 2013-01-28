@@ -95,7 +95,7 @@ set smartcase
 set smarttab
 
 " highlight search terms
-set hlsearch
+" set hlsearch
 " show search matches as you type
 set incsearch
 
@@ -160,6 +160,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+
 nnoremap tt  :tabedit<Space>
 nnoremap td  :tabclose<CR>
 nnoremap tc  :tabclose<CR>
@@ -177,6 +178,9 @@ nnoremap tm  :tabm<Space>
 
 " toggle NerdTree
 nmap <leader>n :NERDTreeToggle<CR>
+
+nmap <leader>e :edit $MYVIMRC<CR>
+nmap <leader>r :source $MYVIMRC<CR>
 
 " run Ack fast
 nnoremap <leader>a :Ack<Space>
