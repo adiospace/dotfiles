@@ -24,6 +24,7 @@ Bundle 'wavded/vim-stylus'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'lunaru/vim-less'
+Bundle 'SirVer/ultisnips'
 " colorschemes
 Bundle 'adrianolaru/vim-adio'
 " nice to try plugins
@@ -131,6 +132,9 @@ let mapleader=","
 " always show the status bar
 set laststatus=2
 
+" used to make vertical bar
+set fillchars=vert:\│
+
 colorscheme adio
 
 " treat JSON files like JavaScript
@@ -146,7 +150,12 @@ let NERDTreeShowHidden=1 " Quit on opening files from the tree
 let NERDTreeQuitOnOpen=1 " Highlight the selected entry in the tree
 let NERDTreeHighlightCursorline=1 " Don't display these kinds of files
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+
+" CtrlP config
 let g:ctrlp_custom_ignore = {'dir': 'target$\|log$\|logs$\|\.buildcache$\|node_modules$'}
+
+" UltiSnips config
+let g:UltiSnipsListSnippets="<c-l>"
 
 " Mappings
 
@@ -160,30 +169,27 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-
-nnoremap tt  :tabedit<Space>
-nnoremap td  :tabclose<CR>
-nnoremap tc  :tabclose<CR>
-nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tn  :tabnext<Space>
-nnoremap tk  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap tm  :tabm<Space>
-
-" map ctrlP to leader t
-" let g:ctrlp_map =''
-" nmap <leader>t :CtrlP<CR>
-" nmap <leader>b :CtrlPBuffer<CR>
+" Tabs navigation
+nnoremap tt :tabedit<Space>
+nnoremap td :tabclose<CR>
+nnoremap tc :tabclose<CR>
+nnoremap th :tabfirst<CR>
+nnoremap tj :tabnext<CR>
+nnoremap tn :tabnext<Space>
+nnoremap tk :tabprev<CR>
+nnoremap tl :tablast<CR>
+nnoremap tm :tabm<Space>
 
 " toggle NerdTree
 nmap <leader>n :NERDTreeToggle<CR>
 
+" edit vimrc quick
 nmap <leader>e :edit $MYVIMRC<CR>
 nmap <leader>r :source $MYVIMRC<CR>
 
 " run Ack fast
 nnoremap <leader>a :Ack<Space>
+
 " remove trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
@@ -191,4 +197,11 @@ nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 map <leader>/ <plug>NERDCommenterToggle<CR>
 imap <leader>/ <Esc><plug>NERDCommenterToggle<CR>i
 
-set fillchars=vert:\│
+" Show syntax highlighting groups for word under cursor
+nmap <leader>p :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
