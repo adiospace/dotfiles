@@ -167,11 +167,11 @@
 	<key>Cursor Color</key>
 	<dict>
 		<key>Blue Component</key>
-		<real>0.37925264239311218</real>
+		<real>0.85767441987991333</real>
 		<key>Green Component</key>
-		<real>0.56203567981719971</real>
+		<real>0.52149862051010132</real>
 		<key>Red Component</key>
-		<real>0.072852320969104767</real>
+		<real>0.063827566802501678</real>
 	</dict>
 	<key>Cursor Text Color</key>
 	<dict>
@@ -203,11 +203,11 @@
 	<key>Selection Color</key>
 	<dict>
 		<key>Blue Component</key>
-		<real>0.3079928457736969</real>
+		<real>0.24500218033790588</real>
 		<key>Green Component</key>
-		<real>0.39850819110870361</real>
+		<real>0.14922986924648285</real>
 		<key>Red Component</key>
-		<real>0.070054955780506134</real>
+		<real>0.036768920719623566</real>
 	</dict>
 </dict>
 </plist>
