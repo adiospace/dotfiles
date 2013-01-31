@@ -57,8 +57,6 @@ set shortmess=aOstT
 set fdm=marker
 " keep 10 lines (top/bottom) for scope
 set scrolloff=10
-" turn on wild mode huge list
-set wildmode=list:longest
 " turn on command line completion wild style
 set wildmenu
 " automatically insert comment leader on return, and let gq format comments
@@ -183,7 +181,7 @@ nnoremap tm :tabm<Space>
 " toggle NerdTree
 nmap <leader>n :NERDTreeToggle<CR>
 
-nmap <c-b> CtrlPBuffer<CR>
+nmap <C-b> :CtrlPBuffer<CR>
 
 " edit vimrc quick
 nmap <leader>e :edit $MYVIMRC<CR>
