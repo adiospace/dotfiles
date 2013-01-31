@@ -183,9 +183,12 @@ nnoremap tm :tabm<Space>
 " toggle NerdTree
 nmap <leader>n :NERDTreeToggle<CR>
 
+nmap <c-b> CtrlPBuffer<CR>
+
 " edit vimrc quick
 nmap <leader>e :edit $MYVIMRC<CR>
 nmap <leader>r :source $MYVIMRC<CR>
+
 
 " run Ack fast
 nnoremap <leader>a :Ack<Space>
