@@ -12,7 +12,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
-Bundle 'kana/vim-smartinput'
+Bundle 'jiangmiao/auto-pairs'
 Bundle 'ervandew/supertab'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'matchit.zip'
@@ -30,6 +30,8 @@ Bundle 'adrianolaru/vim-adio'
 " nice to try plugins
 "Bundle 'Lokaltog/vim-powerline'
 "Bundle 'Lokaltog/vim-easymotion'
+" replaced by auto-pairs
+"Bundle 'kana/vim-smartinput'
 
 filetype plugin indent on
 
