@@ -17,7 +17,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 # - verbose: Show number of commits ahead/behind (+/-) upstream (i.e. u+1, u-1, u=)
 export GIT_PS1_SHOWUPSTREAM="verbose" 
 # Defines my custom Prompt
-export PS1='┌─[\[\e[38;5;32m\]\w\[\e[0m\]\[\e[38;5;242m\]$(__git_ps1 " (%s)")\[\e[0m\]]\n└─╼ '
+export PS1='┌─[\[\e[38;5;32m\]\w\[\e[0m\]\[\e[38;5;240m\]$(__git_ps1 " (%s)")\[\e[0m\]]\n└─╼ '
 
 # Init ruby environment
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
