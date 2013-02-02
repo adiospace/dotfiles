@@ -4,7 +4,7 @@ all:
 	git clone https://github.com/gmarik/vundle.git $(HOME)/.vim/bundle/vundle
 
 	@echo
-	git clone https://github.com/adrianolaru/snippets.git $(HOME)/.vim/snippets
+	git clone git@github.com:adrianolaru/snippets.git $(HOME)/.vim/snippets
 
 	@echo
 	ln -fs $(PWD)/bash_profile $(HOME)/.bash_profile
