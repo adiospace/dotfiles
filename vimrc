@@ -61,6 +61,7 @@ set fdm=marker
 set scrolloff=10
 " turn on command line completion wild style
 set wildmenu
+set wildmode=longest,full
 " automatically insert comment leader on return, and let gq format comments
 set formatoptions=rq
 " don't use a pop up menu for completions
@@ -153,6 +154,8 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so
 
 " CtrlP config
 let g:ctrlp_custom_ignore = {'dir': 'target$\|log$\|logs$\|\.buildcache$\|node_modules$'}
+let g:ctrlp_map='<leader><leader>'
+let g:ctrlp_cmd='CtrlP'
 
 " UltiSnips config
 let g:UltiSnipsListSnippets="<c-l>"
