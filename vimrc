@@ -9,13 +9,14 @@ Bundle 'gmarik/vundle'
 " bundles
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'ervandew/supertab'
+Bundle 'SirVer/ultisnips'
+Bundle 'jiangmiao/auto-pairs'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'matchit.zip'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'ervandew/supertab'
-Bundle 'mileszs/ack.vim.git'
-Bundle 'matchit.zip'
+Bundle 'mileszs/ack.vim'
 " file types
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
@@ -24,13 +25,12 @@ Bundle 'wavded/vim-stylus'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
 Bundle 'lunaru/vim-less'
-Bundle 'SirVer/ultisnips'
 " colorschemes
 Bundle 'adrianolaru/vim-adio'
 " nice to try plugins
 "Bundle 'Lokaltog/vim-powerline'
 "Bundle 'Lokaltog/vim-easymotion'
-" replaced by auto-pairs
+" old plugins
 "Bundle 'kana/vim-smartinput'
 
 filetype plugin indent on
@@ -107,6 +107,7 @@ set history=1000
 set undolevels=1000
 
 set cursorline
+set textwidth=80
 
 " ignore files we don't need to edit
 set wildignore+=*.swp,*.bak,*.pyc,*.class
@@ -156,6 +157,7 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so
 let g:ctrlp_custom_ignore = {'dir': 'target$\|log$\|logs$\|\.buildcache$\|node_modules$'}
 let g:ctrlp_map='<leader><leader>'
 let g:ctrlp_cmd='CtrlP'
+nmap <leader>b :CtrlPBuffer<CR>
 
 " UltiSnips config
 let g:UltiSnipsListSnippets="<c-l>"
@@ -186,7 +188,6 @@ nnoremap tm :tabm<Space>
 " toggle NerdTree
 nmap <leader>n :NERDTreeToggle<CR>
 
-nmap <C-b> :CtrlPBuffer<CR>
 
 " edit vimrc quick
 nmap <leader>e :edit $MYVIMRC<CR>
