@@ -1,12 +1,12 @@
-BASH_PROFILE = $(HOME)/.bash_profile
-VIMRC = $(HOME)/.vimrc
-TMUX = $(HOME)/.tmux.conf
-TMUX_COLORS = $(HOME)/.tmux-adio.colors
-GITCONFIG = $(HOME)/.gitconfig
-VUNDLE = $(HOME)/.vim/bundle/vundle
-TMP_VIM_COLORS = $(HOME)/.vim/colors
-ITERM_COLORS = $(HOME)/adio.itermcolors
-SNIPPETS = $(HOME)/.vim/snippets
+BASH_PROFILE=$(HOME)/.bash_profile
+VIMRC=$(HOME)/.vimrc
+TMUX=$(HOME)/.tmux.conf
+TMUX_COLORS=$(HOME)/.tmux-adio.colors
+GITCONFIG=$(HOME)/.gitconfig
+VUNDLE=$(HOME)/.vim/bundle/vundle
+TMP_VIM_COLORS=$(HOME)/.vim/colors
+ITERM_COLORS=$(HOME)/adio.itermcolors
+SNIPPETS=$(HOME)/.vim/snippets
 
 all: dotfiles vim snippets iterm-colors
 
