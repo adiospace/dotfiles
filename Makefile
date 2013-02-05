@@ -10,8 +10,6 @@ all:
 	@echo "Installed $(HOME)/.gitconfig"
 	@curl -sSo $(HOME)/.tmux-adio.colors https://raw.github.com/adrianolaru/adio-theme/master/tmux/adio.tmuxcolors 
 	@echo "Installed $(HOME)/.adio-tmux.colors"
-	@curl -sSo $(HOME)/adio.itermcolors https://raw.github.com/adrianolaru/adio-theme/master/iTerm2/adio.itermcolors 
-	@echo "Downloaded $(HOME)/adio.itermcolors"
 	@git clone -q https://github.com/gmarik/vundle.git $(HOME)/.vim/bundle/vundle
 	@echo "Installed Vundle - Vim plugin manager"
 	@mkdir $(HOME)/.vim/colors
@@ -19,13 +17,18 @@ all:
 	@vim +BundleInstall! +qall
 	@rm -fr $(HOME)/.vim/colors
 	@echo "Installed Vim plugins"
-	@echo
-	@echo "\x1b[38;5;39m==> \x1b[0m Launch iTerm2 and Import the Adio Preset from: $(HOME)/adio.itermcolors"
 
 tmux-colors:
 
-	@curl -sSo https://raw.github.com/adrianolaru/adio-theme/master/tmux/adio.tmuxcolors $(HOME)/.tmux-adio.colors
+	@curl -sSo $(HOME)/.tmux-adio.colors https://raw.github.com/adrianolaru/adio-theme/master/tmux/adio.tmuxcolors
 	@echo "Updated $(HOME)/.tmux-adio.colors"
+
+iterm-colors:
+
+	@curl -sSo $(HOME)/adio.itermcolors https://raw.github.com/adrianolaru/adio-theme/master/iTerm2/adio.itermcolors 
+	@open "$(HOME)/adio.itermcolors"
+	@rm -f "$(HOME)/adio.itermcolors"
+	@echo "Imported adio preset"
 
 snippets:
 
@@ -40,4 +43,4 @@ clean:
 	rm -f $(HOME)/.tmux-adio.colors
 	rm -f $(HOME)/.gitconfig
 
-.PHONY: all snippets tmux-colors clean
+.PHONY: all tmux-colors iterm-colors snippets clean
