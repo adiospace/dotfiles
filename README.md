@@ -1,6 +1,9 @@
 # My dotfiles
 
 This is where I keep my configuration files for bash, git, vim, tmux and so on.
+Before running any command though, make sure you've installed *iTerm2*, *Vim*, *git*
+and *tmux*. Although is optional, you should also update the default (oldish)
+*bash*.
 
 To install my *dotfiles*:
 
