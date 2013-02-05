@@ -28,7 +28,7 @@ To import *iTerm2 adio preset*:
 
     make iterm-colors
 
-**Note:** After this, you have to manually load the adio preset from iTerm2 preferences.
+**Note:** After this, you have to manually load the adio preset from iTerm2's Preferences.
 
 To do all of the above:
 
