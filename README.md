@@ -21,9 +21,11 @@ To update *tmux adio colors*:
 
     make tmux-colors
 
-To load *iTerm2 adio preset*:
+To import *iTerm2 adio preset*:
 
     make iterm-colors
+
+**Note:** After this, you have to manually load the adio preset from iTerm2 preferences.
 
 To do all of the above:
 
