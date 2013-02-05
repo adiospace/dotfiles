@@ -32,6 +32,7 @@ Bundle 'adrianolaru/vim-adio'
 "Bundle 'Lokaltog/vim-powerline'
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/MatchTagAlways'
 "
 " auto-pairs replaced smartinput for now
 "Bundle 'kana/vim-smartinput'
