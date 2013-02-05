@@ -8,12 +8,12 @@ all:
 	@echo "Installed $(HOME)/.tmux.conf"
 	@ln -fs $(PWD)/gitconfig $(HOME)/.gitconfig
 	@echo "Installed $(HOME)/.gitconfig"
-	@git clone -q https://github.com/gmarik/vundle.git $(HOME)/.vim/bundle/vundle
-	@echo "Installed Vundle - Vim plugin manager"
 	@curl -sSo $(HOME)/.tmux-adio.colors https://raw.github.com/adrianolaru/adio-theme/master/tmux/adio.tmuxcolors 
 	@echo "Installed $(HOME)/.adio-tmux.colors"
 	@curl -sSo $(HOME)/adio.itermcolors https://raw.github.com/adrianolaru/adio-theme/master/iTerm2/adio.itermcolors 
 	@echo "Downloaded $(HOME)/adio.itermcolors"
+	@git clone -q https://github.com/gmarik/vundle.git $(HOME)/.vim/bundle/vundle
+	@echo "Installed Vundle - Vim plugin manager"
 	@mkdir $(HOME)/.vim/colors
 	@curl -sSo $(HOME)/.vim/colors/adio.vim https://raw.github.com/adrianolaru/vim-adio/master/colors/adio.vim 
 	@vim +BundleInstall! +qall
