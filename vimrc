@@ -27,10 +27,13 @@ Bundle 'tpope/vim-markdown'
 Bundle 'lunaru/vim-less'
 " colorschemes
 Bundle 'adrianolaru/vim-adio'
+
 " nice to try plugins
 "Bundle 'Lokaltog/vim-powerline'
 "Bundle 'Lokaltog/vim-easymotion'
-" old plugins
+"Bundle 'Valloric/YouCompleteMe'
+"
+" auto-pairs replaced smartinput for now
 "Bundle 'kana/vim-smartinput'
 
 filetype plugin indent on
