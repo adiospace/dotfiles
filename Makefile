@@ -8,13 +8,12 @@ TMP_VIM_COLORS = $(HOME)/.vim/colors
 ITERM_COLORS = $(HOME)/adio.itermcolors
 SNIPPETS = $(HOME)/.vim/snippets
 
-all:
+all: dotfiles vim snippets iterm-colors
+
+dotfiles:
 
 	@ln -fs $(PWD)/bash_profile $(BASH_PROFILE)
 	@echo "Installed $(BASH_PROFILE)"
-
-	@ln -fs $(PWD)/vimrc $(VIMRC)
-	@echo "Installed $(VIMRC)"
 
 	@ln -fs $(PWD)/tmux.conf $(TMUX)
 	@echo "Installed $(TMUX)"
@@ -25,6 +24,12 @@ all:
 	@ln -fs $(PWD)/gitconfig $(GITCONFIG)
 	@echo "Installed $(GITCONFIG)"
 
+
+vim:
+
+	@ln -fs $(PWD)/vimrc $(VIMRC)
+	@echo "Installed $(VIMRC)"
+
 	@git clone -q https://github.com/gmarik/vundle.git $(VUNDLE)
 	@echo "Installed Vundle - Vim plugin manager"
 
@@ -34,22 +39,26 @@ all:
 	@rm -fr $(TMP_VIM_COLORS)
 	@echo "Installed Vim plugins"
 
+
+snippets:
+
+	@git clone -q git@github.com:adrianolaru/snippets.git $(SNIPPETS)
+	@echo "Installed snippets to $(SNIPPETS)"
+
+
 tmux-colors:
 
 	@curl -sSo $(TMUX_COLORS) https://raw.github.com/adrianolaru/adio-theme/master/tmux/adio.tmuxcolors
 	@echo "Updated $(TMUX_COLORS)"
+
 
 iterm-colors:
 
 	@curl -sSo $(ITERM_COLORS) https://raw.github.com/adrianolaru/adio-theme/master/iTerm2/adio.itermcolors 
 	@open "$(ITERM_COLORS)"
 	@rm -f "$(ITERM_COLORS)"
-	@echo "Imported adio preset"
+	@echo "Imported iTerm2 adio preset"
 
-snippets:
-
-	@git clone -q git@github.com:adrianolaru/snippets.git $(SNIPPETS)
-	@echo "Installed snippets to $(SNIPPETS)"
 
 clean:
 	rm -f $(BASH_PROFILE)
@@ -59,4 +68,4 @@ clean:
 	rm -f $(TMUX_COLORS)
 	rm -f $(GITCONFIG)
 
-.PHONY: all tmux-colors iterm-colors snippets clean
+.PHONY: all dotfiles vim tmux-colors iterm-colors snippets clean
