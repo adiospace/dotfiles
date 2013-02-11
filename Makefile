@@ -3,6 +3,7 @@ VIMRC=$(HOME)/.vimrc
 TMUX=$(HOME)/.tmux.conf
 TMUX_COLORS=$(HOME)/.tmux-adio.colors
 GITCONFIG=$(HOME)/.gitconfig
+GIT_PROMPT=$(HOME)/.git-prompt.sh
 VUNDLE=$(HOME)/.vim/bundle/vundle
 TMP_VIM_COLORS=$(HOME)/.vim/colors
 ITERM_COLORS=$(HOME)/adio.itermcolors
@@ -23,6 +24,9 @@ dotfiles:
 
 	@ln -fs $(PWD)/gitconfig $(GITCONFIG)
 	@echo "Installed $(GITCONFIG)"
+
+	@curl -sSo $(GIT_PROMPT) https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+	@echo "Installed $(GIT_PROMPT)"
 
 
 vim:
@@ -67,5 +71,6 @@ clean:
 	rm -f $(TMUX)
 	rm -f $(TMUX_COLORS)
 	rm -f $(GITCONFIG)
+	rm -f $(GIT_PROMPT)
 
 .PHONY: all dotfiles vim tmux-colors iterm-colors snippets clean

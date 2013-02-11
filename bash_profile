@@ -5,7 +5,7 @@ export PATH="$HOME/.rbenv/bin:/Users/me/.bin:/usr/local/bin:/usr/local/sbin:/usr
 # Custom PS1 with git support
 #
 # Init git-prompt script
-. /usr/local/Cellar/git/1.8.1.1/etc/bash_completion.d/git-prompt.sh
+. .git-prompt.sh
 # Show unstaged (*) and staged (+) changes next to the branch name
 export GIT_PS1_SHOWDIRTYSTATE=true
 # Show if something is stashed ($) next to the branch name
