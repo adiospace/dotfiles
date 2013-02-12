@@ -1,11 +1,11 @@
 # Define PATH
-export PATH="$HOME/.rbenv/bin:/Users/me/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/mysql/bin:$PATH"
 
 #
 # Custom PS1 with git support
 #
 # Init git-prompt script
-. ~/.git-prompt.sh
+. ~/.bin/git-prompt.sh
 # Show unstaged (*) and staged (+) changes next to the branch name
 export GIT_PS1_SHOWDIRTYSTATE=true
 # Show if something is stashed ($) next to the branch name
