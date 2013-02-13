@@ -3,7 +3,8 @@ VIMRC=$(HOME)/.vimrc
 TMUX=$(HOME)/.tmux.conf
 TMUX_COLORS=$(HOME)/.tmux-adio.colors
 GITCONFIG=$(HOME)/.gitconfig
-GIT_PROMPT=$(HOME)/.bin/git-prompt.sh
+BIN=$(HOME)/.bin
+GIT_PROMPT=$(BIN)/git-prompt.sh
 VUNDLE=$(HOME)/.vim/bundle/vundle
 TMP_VIM_COLORS=$(HOME)/.vim/colors
 ITERM_COLORS=$(HOME)/adio.itermcolors
@@ -25,7 +26,7 @@ dotfiles:
 	@ln -fs $(PWD)/gitconfig $(GITCONFIG)
 	@echo "Installed $(GITCONFIG)"
 
-	# check for .bin directory and create it if it doesn't exist
+	@if [ ! -d $(BIN) ]; then mkdir $(BIN); fi
 	@curl -sSo $(GIT_PROMPT) https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
 	@echo "Installed $(GIT_PROMPT)"
 
