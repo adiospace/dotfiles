@@ -69,10 +69,10 @@ iterm-colors:
 clean:
 	rm -f $(BASH_PROFILE)
 	rm -f $(VIMRC)
-	rm -fr $(HOME)/.vim
 	rm -f $(TMUX)
 	rm -f $(TMUX_COLORS)
 	rm -f $(GITCONFIG)
-	rm -f $(GIT_PROMPT)
+	rm -fr $(BIN)
+	rm -fr $(HOME)/.vim
 
 .PHONY: all dotfiles vim tmux-colors iterm-colors snippets clean
