@@ -218,3 +218,4 @@ function! <SID>SynStack()
 endfunc
 
 let g:UltiSnipsSnippetDirectories=["snippets"]
+let g:NERDTreeWinSize = 40 
