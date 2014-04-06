@@ -37,3 +37,9 @@ git clone -q https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall! +qall
 ```
 
+- Config git
+
+```
+cp ~/gitconfig ~/.gitconfig
+```
+
