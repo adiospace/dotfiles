@@ -16,7 +16,7 @@ cp powerline-fonts/SourceCodePro/*.otf ~/Library/Fonts
 
 - Downnload and install [iTerm2](http://www.iterm2.com/#/section/home)
 
-- Download Base16 iTerm profiles and install base16-ocean.dark (not the 256 version)
+- Download Base16 iTerm profiles, open iTerm2, and install base16-ocean.dark (not the 256 version) profile. Set the font to Source Code Pro with Powerline 14pt.
 
 ```
 git clone https://github.com/chriskempson/base16-iterm2
