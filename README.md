@@ -33,7 +33,7 @@ cp bash_profile ~/.bash_profile
 - Install vim config
 
 ```
-cp -fs vimrc  ~/.vimrc
+cp vimrc  ~/.vimrc
 git clone -q https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall! +qall
 ```
