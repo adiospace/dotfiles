@@ -1,13 +1,13 @@
 - Install git prompt
 
 ```
-if [ ! -d ~/bin ]; then 
-  mkdir ~/bin; 
+if [ ! -d ~/bin ]; then
+  mkdir ~/bin;
 fi
 curl -sSo ~/bin/git-prompt.sh https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
 ```
 
-- Download and install Source Code Pro with Powerline from 
+- Download and install Source Code Pro with Powerline from
 
 ```
 git clone https://github.com/Lokaltog/powerline-fonts.git
