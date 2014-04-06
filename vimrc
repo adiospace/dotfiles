@@ -1,221 +1,290 @@
 set nocompatible
-filetype off
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle Config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-
-" bundles
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'ervandew/supertab'
-Bundle 'SirVer/ultisnips'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'matchit.zip'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'mileszs/ack.vim'
-" file types
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'wavded/vim-stylus'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
-Bundle 'lunaru/vim-less'
-" colorschemes
-Bundle 'adrianolaru/vim-adio'
-
-" nice to try plugins
-"Bundle 'Lokaltog/vim-powerline'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'Valloric/YouCompleteMe'
-"Bundle 'Valloric/MatchTagAlways'
+Plugin 'gmarik/vundle'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'ervandew/supertab'
+Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'rking/ag.vim' 
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'matchit.zip'
 "
-" auto-pairs replaced smartinput for now
-"Bundle 'kana/vim-smartinput'
-
+" file types
+Plugin 'othree/html5.vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'groenewege/vim-less'
+Plugin 'tpope/vim-markdown'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'kchmck/vim-coffee-script'
+"Plugin 'wavded/vim-stylus'
+"Plugin 'tpope/vim-haml'
+"
+" colorschemes
+Plugin 'chriskempson/base16-vim'
 filetype plugin indent on
 
-set termencoding=utf-8
-set encoding=utf-8
 
 
-set ruler
-set hidden
-" we use 256 enabled terminals
-set t_Co=256
-" change the terminal's title
-set title
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sets how many lines of history VIM has to remember
+set history=700
 
-" support all three, in this order
-set fileformats=unix,dos,mac
-" none of these are word dividers
-set iskeyword+=_,$,@,%,#
-" ignore these list file extensions
-" turn on line numbers
-set number
-" shortens messages to avoid 'press a key' prompt
-set shortmess=aOstT
-" make folding work
-set fdm=marker
-" keep 10 lines (top/bottom) for scope
-set scrolloff=10
-" turn on command line completion wild style
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command W w !sudo tee % > /dev/null
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set 7 lines to the cursor - when moving vertically using j/k
+set scrolloff=7
+
+" Turn on the WiLd menu
 set wildmenu
 set wildmode=longest,full
 " automatically insert comment leader on return, and let gq format comments
 set formatoptions=rq
 " don't use a pop up menu for completions
-set completeopt=
-set listchars=tab:▸\ ,eol:¬
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-" don't wrap lines
-set nowrap
-" a tab is 2 spaces
-set tabstop=2
-set softtabstop=2
-" expand tabs by default
-set expandtab
-" always set autoindenting on
-set autoindent
-" copy the previous indentation on autoindenting
-set copyindent
-" number of spaces to use for autoindenting
-set shiftwidth=2
-" use multiple of shiftwidth when indenting with '<' and '>'
-" when at 3 spaces, and I hit > ... go to 4, not 5
-set shiftround
-" set show matching parenthesis
-" set showmatch
-" ignore case when searching
-set ignorecase
-" case inferred by default
-set infercase
-" ignore case if search pattern is all lowercase, case-sensitive otherwise
-set smartcase
-" insert tabs on the start of a line according to shiftwidth, not tabstop
-set smarttab
+set completeopt="
 
-" highlight search terms
-" set hlsearch
-" show search matches as you type
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+else
+    set wildignore+=.git\*,.hg\*,.svn\*
+endif
+
+"Always show current position
+set ruler
+
+" A buffer becomes hidden when it is abandoned
+set hid
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
 set incsearch
 
-" remember more commands and search history
-set history=1000
-" use many muchos levels of undo
-set undolevels=1000
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
 
-set cursorline
-set textwidth=80
+" For regular expressions turn magic on
+set magic
 
-" ignore files we don't need to edit
-set wildignore+=*.swp,*.bak,*.pyc,*.class
-set wildignore+=*/.git/*,*/.hq/*,*/.svn/*
-set wildignore+=*.dll,*.o,*.obj,*.exe
-set wildignore+=*.jpg,*.gif,*.png
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
 
-" no noise please
-set noerrorbells visualbell t_vb=
+" Add a bit extra margin to the left
+" set foldcolumn=1
+" Numbers pls
+set nu
 
-" don't let vim track backups
+" Display tabline only if there are at least two tab pages
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable
+colorscheme base16-ocean
+set background=dark
+set encoding=utf8
+set fileformats=unix,dos,mac
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
+set nowb
 set noswapfile
 
-" toggle paste
-set pastetoggle=<F2>
 
-" enable syntax
-syntax enable
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+" Be smart when using tabs ;)
+set smarttab
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
+" Linebreak on 500 characters
+set lbr
+set tw=500
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
 
-" set map leader
-let mapleader=","
 
-" always show the status bar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around, tabs, windows and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+map <c-space> ?
+
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Close the current buffer
+map <leader>bd :Bclose<cr>
+
+" Close all the buffers
+map <leader>ba :1,1000 bd!<cr>
+
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext
+
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+" Always show the status line
 set laststatus=2
 
-" used to make vertical bar
-set fillchars=vert:\│
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Editing mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remap VIM 0 to first non-blank character
+map 0 ^
 
-colorscheme adio
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
-" treat JSON files like JavaScript
-au BufNewFile,BufRead *.json setf javascript
 
-" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Spell checking
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
 
-" NERDTree config
-let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks") " Store the bookmarks file
-let NERDTreeShowFiles=1  " Show hidden files, too
-let NERDTreeShowHidden=1 " Quit on opening files from the tree
-let NERDTreeQuitOnOpen=1 " Highlight the selected entry in the tree
-let NERDTreeHighlightCursorline=1 " Don't display these kinds of files
-let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Misc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remove the Windows ^M - when the encodings gets messed up
+noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-" CtrlP config
+" Toggle paste mode on and off
+map <leader>pp :setlocal paste!<cr>
+
+" Exit highlight search when enter insert mode
+autocmd InsertEnter * :setlocal nohlsearch
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Airline config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline_powerline_fonts = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => UltiSnips plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => CtrlP plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:ctrlp_custom_ignore = {'dir': 'target$\|log$\|logs$\|\.buildcache$\|node_modules$'}
 let g:ctrlp_map='<leader><leader>'
 let g:ctrlp_cmd='CtrlP'
 nmap <leader>b :CtrlPBuffer<CR>
 
-" UltiSnips config
-let g:UltiSnipsListSnippets="<c-l>"
-
-" Mappings
-
-" use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
-" (it will prompt for sudo password when writing)
-cmap w!! w !sudo tee % > /dev/null
-
-" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" Tabs navigation
-nnoremap tt :tabedit<Space>
-nnoremap td :tabclose<CR>
-nnoremap tc :tabclose<CR>
-nnoremap th :tabfirst<CR>
-nnoremap tj :tabnext<CR>
-nnoremap tn :tabnext<Space>
-nnoremap tk :tabprev<CR>
-nnoremap tl :tablast<CR>
-nnoremap tm :tabm<Space>
-
-" toggle NerdTree
-nmap <leader>n :NERDTreeToggle<CR>
-
-
-" edit vimrc quick
-nmap <leader>e :edit $MYVIMRC<CR>
-nmap <leader>r :source $MYVIMRC<CR>
-
-
-" run Ack fast
-nnoremap <leader>a :Ack<Space>
-
-" remove trailing whitespace
-nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
-
-" comment
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NerdCommenter plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>/ <plug>NERDCommenterToggle<CR>
 imap <leader>/ <Esc><plug>NERDCommenterToggle<CR>i
 
-" Show syntax highlighting groups for word under cursor
-nmap <leader>p :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
 
-let g:UltiSnipsSnippetDirectories=["snippets"]
-let g:NERDTreeWinSize = 40 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Tabular plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:\zs<CR>
+vmap <leader>a: :Tabularize /:\zs<CR>
+" add more here 

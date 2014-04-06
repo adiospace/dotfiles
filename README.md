@@ -1,38 +1,39 @@
-# My dotfiles
+- Install git prompt
 
-This is where I keep my configuration files for bash, git, vim, tmux and so on.
-Before running any command though, make sure you've installed *iTerm2*, *Vim*, *git*
-and *tmux*. Optionally, you should also update the default (oldish)
-*bash*.
+```
+if [ ! -d ~/bin ]; then 
+  mkdir ~/bin; 
+fi
+curl -sSo ~/bin/git-prompt.sh https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+```
 
-To install my *dotfiles*:
+- Download and install Source Code Pro with Powerline from 
 
-    make dotfiles
+```
+git clone https://github.com/Lokaltog/powerline-fonts.git
+cp powerline-fonts/SourceCodePro/*.otf ~/Library/Fonts
+```
 
-To configure *vim*:
+- Downnload and install [iTerm2](http://www.iterm2.com/#/section/home)
 
-    make vim
+- Download Base16 iTerm profiles and install base16-ocean.dark (not the 256 version)
 
-To install my *UltiSnippets snippets* for Vim:
+```
+git clone https://github.com/chriskempson/base16-iterm2
+```
 
-    make snippets
+- Install `bash_profile`
 
-**Note:** This will checkout my snippets repo using SSH. I need this, in case I may
-create more snippets.
+```
+ln -fs bash_profile ~/.bash_profile
+```
 
-To update *tmux adio colors*:
+- Download and install [MacVim](https://github.com/b4winckler/macvim/releases)
 
-    make tmux-colors
-
-To import *iTerm2 adio preset*:
-
-    make iterm-colors
-
-**Note:** After this, you have to manually load the adio preset from iTerm2's Preferences.
-
-To do all of the above:
-
-    make
-
-
+- Install vim config
+```
+ln -fs vimrc  ~/.vimrc
+git clone -q https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+vim +BundleInstall! +qall
+```
 
