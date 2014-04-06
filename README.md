@@ -25,14 +25,15 @@ git clone https://github.com/chriskempson/base16-iterm2
 - Install `bash_profile`
 
 ```
-ln -fs bash_profile ~/.bash_profile
+cp bash_profile ~/.bash_profile
 ```
 
 - Download and install [MacVim](https://github.com/b4winckler/macvim/releases)
 
 - Install vim config
+
 ```
-ln -fs vimrc  ~/.vimrc
+cp -fs vimrc  ~/.vimrc
 git clone -q https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall! +qall
 ```
