@@ -41,6 +41,6 @@ vim +BundleInstall! +qall
 - Config git
 
 ```
-cp ~/gitconfig ~/.gitconfig
+cp gitconfig ~/.gitconfig
 ```
 
