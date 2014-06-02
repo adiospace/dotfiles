@@ -49,4 +49,5 @@ eval "$(rbenv init -)"
 # use the faster macvim build
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias vi="vim"
-alias ll="ls -l"
+alias ll="ls -Fl"
+alias ls="ls -F"
